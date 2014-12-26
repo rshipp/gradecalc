@@ -1,0 +1,76 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://bootflat.github.io/bootflat/css/bootflat.css" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  {% block extra_includes %}{% endblock %}
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <title>{% block title %}Grade Calculator{% endblock %}</title>
+</head>
+<body>
+  <div id="main">
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    {% block header %}
+      <div class="container-fluid col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+             <li><a data-toggle="modal" data-target="#logoutModal" data-placement="bottom" data-toggle="tooltip" type="button" data-original-title="log out" id="tooltip">
+                <i class="glyphicon glyphicon-log-out"></i></a></li>
+          {% else %}
+            <li><a class="btn btn-default" href="{% url 'google_login' %}">sign in</a></li>
+          {% endif %}
+          </ul>
+        </div>
+      </div>
+    {% endblock %}
+    </nav>
+
+    <div id="content">
+      {% block content %}
+        <!-- Main page content goes here -->
+      {% endblock %}
+    </div>
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form class="well" method="post" action="{% url 'account_logout' %}">
+            <div class="modal-header">
+              <h3>Are you sure you want to log out?</h3>
+            </div>
+            <div class="modal-body">
+              {% csrf_token %}
+            </div>
+            <div class="modal-footer">
+              <input class="btn btn-primary" type="submit" value="Log Out" />
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- js -->
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="https://bootflat.github.io/bootflat/js/icheck.min.js"></script>
+</body>
+</html>
+

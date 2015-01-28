@@ -1,6 +1,16 @@
 {% extends "gradecalc/base.html" %}
 {% block title %}Grade Calculator{% endblock %}
 {% block content %}
-    <div class="">
+    <div class="flex-container">
+        {% for group in groups %}
+        <div class="flex-group">
+            {{ group.name }}: {{ group.percent }}%<br>
+            {% for assignment in group.percentassignment_set.all %}
+            <div class="flex-assignment">
+                {{ assignment.name }}: {{ assignment.percent }}%
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}

@@ -10,6 +10,9 @@ class Course(models.Model):
     class Meta:
         abstract = True
 
+    def course_id(self):
+        return self.department + self.number
+
 
 class PointsCourse(Course):
     points = models.PositiveIntegerField()

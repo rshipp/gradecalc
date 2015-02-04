@@ -1,8 +1,6 @@
 from django.shortcuts import render
-from gradecalc.models import Group
+from gradecalc.models import PointsCourse, PercentCourse
 
 def index_view(request):
-    groups = Group.objects.all()
-    blah = groups[0].percentassignment_set.all()
-    return render(request, 'gradecalc/index.html', {'groups': groups, 
-        'blah': blah})
+    courses = list(PointsCourse.objects.all()) + list(PercentCourse.objects.all())
+    return render(request, 'gradecalc/index.html', {'courses': courses})

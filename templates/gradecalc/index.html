@@ -1,16 +1,54 @@
 {% extends "gradecalc/base.html" %}
 {% block title %}Grade Calculator{% endblock %}
 {% block content %}
-    <div class="flex-container">
-        {% for group in groups %}
-        <div class="flex-group">
-            {{ group.name }}: {{ group.percent }}%<br>
-            {% for assignment in group.percentassignment_set.all %}
-            <div class="flex-assignment">
-                {{ assignment.name }}: {{ assignment.percent }}%
+    <div class="panel">
+        <div class="tabbable tabs-right clearfix">
+            <ul id="courseTabs" class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#courseDefault">Home</a>
+                </li>
+                {% for course in courses %}
+                <li>
+                    <a data-toggle="tab" href="#course{{ course.course_id }}">{{ course.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div id=courseTabContent" class="tab-content flex-container">
+                <div id="courseDefault" class="tab-pane fade active in">
+                    <p>Some default stuff</p>
+                </div>
+                {% for course in courses %}
+                <div id="course{{ course.course_id }}" class="tab-pane fade">
+                    {% for group in course.group_set.all %}
+                    <div class="flex-group">
+                        {{ group.name }}: {{ group.percent }}%<br>
+                        {% for assignment in group.percentassignment_set.all %}
+                        <div class="flex-assignment">
+                            <div class="col-xs-7">{{ assignment.name }}</div>
+                            <div class="col-xs-2">{{ assignment.percent }}%</div>
+                        </div>
+                        {% endfor %}
+                        <div class="flex-new-assignment">
+                            <div class="col-xs-7">
+                                <input placeholder="Name" class="form-control"
+                                       name="assignment_name"></input>
+                            </div>
+                            <div class="col-xs-2">
+                                <input placeholder="Percent" type="number" class="form-control"
+                                       min=0 max=100 step=1 name="percent"></input>
+                            </div>
+                            <div class="col-xs-2">
+                                <input placeholder="Grade" type="number" class="form-control"
+                                       min=0 step=1 name="grade"></input>
+                            </div>
+                            <div class="col-xs-1">
+                                <input type=hidden value="{{ group.name }}" name=group></input>
+                                <button class="btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
-        {% endfor %}
-    </div>
 {% endblock %}

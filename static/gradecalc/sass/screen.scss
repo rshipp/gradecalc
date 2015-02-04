@@ -11,16 +11,45 @@ div#content {
 
 .flex-container {
     display: flex;
+    flex-direction: column;
 }
 
 .flex-group {
     display: flex;
-    background: blue;
-
+    flex-direction: column;
+    line-height: 34px;
     padding: 5px;
+    padding-top: 0px;
 }
 
 .flex-assignment {
-    background: red;
+    background: lightgray;
+    color: black;
     padding: 5px;
+
+    // From bootflat
+    min-height: 44px;
+    padding: 5px 12px;
+
+    // Override some column values
+    .col-xs-7 {
+        padding-left: 5px;
+        padding-right: 0;
+        // height - 2*padding
+        line-height: 34px;
+    }
+
+    .col-xs-2 {
+        @extend .col-xs-7;
+    }
+
+    .col-xs-1 {
+        @extend .col-xs-7;
+    }
+}
+
+.flex-new-assignment {
+    @extend .flex-assignment;
+    padding: 5px;
+
 }

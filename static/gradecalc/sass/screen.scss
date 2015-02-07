@@ -5,6 +5,15 @@
 
 @import "compass/reset";
 
+// Fonts
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+// Site styles
+
 div#content {
     padding-top: 60px;
 }
@@ -65,4 +74,15 @@ div#content {
     }
 
     border-radius: 0 0 4px 4px;
+}
+
+.panel-title {
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #FFF;
+}
+
+.panel-group-lists .panel-title a:active,
+.panel-group-lists .panel-title a:hover,
+.panel-group-lists .panel-title a:focus {
+    color: #434A54;
 }

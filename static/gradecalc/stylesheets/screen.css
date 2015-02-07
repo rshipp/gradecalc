@@ -2,6 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 /* line 5, ../../../../../../../../usr/lib/ruby/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -67,18 +68,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 8, ../sass/screen.scss */
+/* line 11, ../sass/screen.scss */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* line 17, ../sass/screen.scss */
 div#content {
   padding-top: 60px;
 }
 
-/* line 12, ../sass/screen.scss */
+/* line 21, ../sass/screen.scss */
 .flex-container {
   display: flex;
   flex-direction: column;
 }
 
-/* line 17, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
 .flex-group {
   display: flex;
   flex-direction: column;
@@ -88,7 +94,7 @@ div#content {
   border-radius: 4px;
 }
 
-/* line 27, ../sass/screen.scss */
+/* line 36, ../sass/screen.scss */
 .flex-assignment, .flex-new-assignment {
   background: lightgray;
   color: black;
@@ -96,24 +102,37 @@ div#content {
   min-height: 44px;
   padding: 5px 12px;
 }
-/* line 37, ../sass/screen.scss */
+/* line 46, ../sass/screen.scss */
 .flex-assignment .col-xs-7, .flex-new-assignment .col-xs-7, .flex-assignment .col-xs-2, .flex-new-assignment .col-xs-2, .flex-assignment .col-xs-1, .flex-new-assignment .col-xs-1 {
   padding-left: 5px;
   padding-right: 0;
   line-height: 34px;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 .flex-assignment-1 {
   border-radius: 4px 4px 0 0;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
 .flex-new-assignment {
   padding: 5px;
   border-radius: 0 0 4px 4px;
 }
-/* line 62, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 .flex-new-assignment button.btn {
   position: absolute;
+}
+
+/* line 79, ../sass/screen.scss */
+.panel-title {
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #FFF;
+}
+
+/* line 84, ../sass/screen.scss */
+.panel-group-lists .panel-title a:active,
+.panel-group-lists .panel-title a:hover,
+.panel-group-lists .panel-title a:focus {
+  color: #434A54;
 }

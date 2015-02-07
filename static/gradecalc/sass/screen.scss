@@ -20,6 +20,8 @@ div#content {
     line-height: 34px;
     padding: 5px;
     padding-top: 0px;
+
+    border-radius: 4px;
 }
 
 .flex-assignment {
@@ -48,8 +50,19 @@ div#content {
     }
 }
 
+.flex-assignment-1 {
+    //@extend flex-assignment;
+    border-radius: 4px 4px 0 0;
+}
+
 .flex-new-assignment {
     @extend .flex-assignment;
     padding: 5px;
 
+    button.btn {
+        // pixel fix
+        position: absolute;
+    }
+
+    border-radius: 0 0 4px 4px;
 }

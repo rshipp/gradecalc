@@ -19,11 +19,12 @@
                 </div>
                 {% for course in courses %}
                 <div id="course{{ course.course_id }}" class="tab-pane fade">
+                    {# Only PercentCourses have groups. #}
                     {% for group in course.group_set.all %}
                     <div class="flex-group">
                         {{ group.name }}: {{ group.percent }}%<br>
                         {% for assignment in group.percentassignment_set.all %}
-                        <div class="flex-assignment">
+                        <div class="flex-assignment flex-assignment-{{ forloop.counter }}">
                             <div class="col-xs-7">{{ assignment.name }}</div>
                             <div class="col-xs-2">{{ assignment.percent }}%</div>
                         </div>
@@ -48,6 +49,35 @@
                         </div>
                     </div>
                     {% endfor %}
+                    {# Now do the PointsCourses. #}
+                    {% if course.pointsassignment_set.all %}
+                    <div class="flex-group">
+                        {% for assignment in course.pointsassignment_set.all %}
+                        <div class="flex-assignment flex-assignment-{{ forloop.counter }}">
+                            <div class="col-xs-7">{{ assignment.name }}</div>
+                            <div class="col-xs-2">{{ assignment.points }}</div>
+                        </div>
+                        {% endfor %}
+                        <div class="flex-new-assignment">
+                            <div class="col-xs-7">
+                                <input placeholder="Name" class="form-control"
+                                       name="assignment_name"></input>
+                            </div>
+                            <div class="col-xs-2">
+                                <input placeholder="Points" type="number" class="form-control"
+                                       min=0 step=1 name="points"></input>
+                            </div>
+                            <div class="col-xs-2">
+                                <input placeholder="Grade" type="number" class="form-control"
+                                       min=0 step=1 name="grade"></input>
+                            </div>
+                            <div class="col-xs-1">
+                                <input type=hidden value="{{ course.course_id }}" name=course></input>
+                                <button class="btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>

@@ -85,9 +85,10 @@ div#content {
   line-height: 34px;
   padding: 5px;
   padding-top: 0px;
+  border-radius: 4px;
 }
 
-/* line 25, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 .flex-assignment, .flex-new-assignment {
   background: lightgray;
   color: black;
@@ -95,14 +96,24 @@ div#content {
   min-height: 44px;
   padding: 5px 12px;
 }
-/* line 35, ../sass/screen.scss */
+/* line 37, ../sass/screen.scss */
 .flex-assignment .col-xs-7, .flex-new-assignment .col-xs-7, .flex-assignment .col-xs-2, .flex-new-assignment .col-xs-2, .flex-assignment .col-xs-1, .flex-new-assignment .col-xs-1 {
   padding-left: 5px;
   padding-right: 0;
   line-height: 34px;
 }
 
-/* line 51, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
+.flex-assignment-1 {
+  border-radius: 4px 4px 0 0;
+}
+
+/* line 58, ../sass/screen.scss */
 .flex-new-assignment {
   padding: 5px;
+  border-radius: 0 0 4px 4px;
+}
+/* line 62, ../sass/screen.scss */
+.flex-new-assignment button.btn {
+  position: absolute;
 }

@@ -1,24 +1,30 @@
 {% extends "gradecalc/base.html" %}
 {% block title %}Grade Calculator{% endblock %}
 {% block content %}
-    <div class="panel">
-        <div class="tabbable tabs-right clearfix">
-            <ul id="courseTabs" class="nav nav-tabs">
-                <li class="active">
-                    <a data-toggle="tab" href="#courseDefault">Home</a>
-                </li>
-                {% for course in courses %}
-                <li>
-                    <a data-toggle="tab" href="#course{{ course.course_id }}">{{ course.name }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-            <div id=courseTabContent" class="tab-content flex-container">
-                <div id="courseDefault" class="tab-pane fade active in">
+    <div id="courses" class="panel-group panel-group-lists collapse in">
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="#collapseCourseHome" data-parent="#courses"
+                       data-toggle="collapse">Home</a>
+                </h4>
+            </div>
+            <div id="collapseCourseHome" class="panel-collapse collapse in flex-container">
+                <div class="panel-body">
                     <p>Some default stuff</p>
                 </div>
-                {% for course in courses %}
-                <div id="course{{ course.course_id }}" class="tab-pane fade">
+            </div>
+        </div>
+        {% for course in courses %}
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="collapsed" href="#collapseCourse{{ course.course_id }}"
+                       data-parent="#courses" data-toggle="collapse">{{ course.name }}</a>
+                </h4>
+            </div>
+            <div id="collapseCourse{{ course.course_id }}" class="panel-collapse collapse">
+                <div class="panel-body">
                     {# Only PercentCourses have groups. #}
                     {% for group in course.group_set.all %}
                     <div class="flex-group">
@@ -79,6 +85,7 @@
                     </div>
                     {% endif %}
                 </div>
-                {% endfor %}
             </div>
+        </div>
+        {% endfor %}
 {% endblock %}

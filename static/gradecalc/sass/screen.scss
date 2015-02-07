@@ -9,13 +9,20 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 // Site styles
 
 div#content {
     padding-top: 60px;
+}
+
+p {
+    // Line-height from bootflat.
+    line-height: 1.42857;
+    // Extra space between paragraphs.
+    margin-bottom: 5px;
 }
 
 .flex-container {

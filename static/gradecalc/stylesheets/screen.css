@@ -108,34 +108,44 @@ p {
   padding: 5px 12px;
 }
 /* line 51, ../sass/screen.scss */
-.flex-assignment .col-xs-7, .flex-new-assignment .col-xs-7, .flex-assignment .col-xs-2, .flex-new-assignment .col-xs-2, .flex-assignment .col-xs-1, .flex-new-assignment .col-xs-1 {
+.flex-assignment .col-xs-8, .flex-new-assignment .col-xs-8,
+.flex-assignment .col-xs-7,
+.flex-new-assignment .col-xs-7,
+.flex-assignment .col-xs-4,
+.flex-new-assignment .col-xs-4,
+.flex-assignment .col-xs-3,
+.flex-new-assignment .col-xs-3,
+.flex-assignment .col-xs-2,
+.flex-new-assignment .col-xs-2,
+.flex-assignment .col-xs-1,
+.flex-new-assignment .col-xs-1 {
   padding-left: 5px;
   padding-right: 0;
   line-height: 34px;
 }
 
-/* line 67, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .flex-assignment-1 {
   border-radius: 4px 4px 0 0;
 }
 
-/* line 72, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 .flex-new-assignment {
   padding: 5px;
   border-radius: 0 0 4px 4px;
 }
-/* line 76, ../sass/screen.scss */
+/* line 73, ../sass/screen.scss */
 .flex-new-assignment button.btn {
   position: absolute;
 }
 
-/* line 84, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 .panel-title {
   font-weight: bold;
   text-shadow: 2px 2px 2px #FFF;
 }
 
-/* line 89, ../sass/screen.scss */
+/* line 86, ../sass/screen.scss */
 .panel-group-lists .panel-title a:active,
 .panel-group-lists .panel-title a:hover,
 .panel-group-lists .panel-title a:focus {

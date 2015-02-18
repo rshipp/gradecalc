@@ -70,19 +70,14 @@
                         {% for assignment in group.percentassignment_set.all %}
                         <div class="flex-assignment flex-assignment-{{ forloop.counter }}">
                             <div class="col-xs-7">{{ assignment.name }}</div>
-                            <div class="col-xs-2">{{ assignment.percent }}%</div>
                         </div>
                         {% endfor %}
                         <div class="flex-new-assignment">
-                            <div class="col-xs-7">
+                            <div class="col-xs-8">
                                 <input placeholder="Name" class="form-control"
                                        name="assignment_name"></input>
                             </div>
-                            <div class="col-xs-2">
-                                <input placeholder="Percent" type="number" class="form-control"
-                                       min=0 max=100 step=1 name="percent"></input>
-                            </div>
-                            <div class="col-xs-2">
+                            <div class="col-xs-3">
                                 <input placeholder="Grade" type="number" class="form-control"
                                        min=0 step=1 name="grade"></input>
                             </div>

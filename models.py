@@ -42,4 +42,3 @@ class PointsAssignment(Assignment):
 
 class PercentAssignment(Assignment):
     group = models.ForeignKey(Group)
-    percent = models.PositiveIntegerField()
